@@ -1,0 +1,10 @@
+.catcherWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.catcherTexto {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}

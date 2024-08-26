@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./LoginForm.module.css";
 import LoginCadastro from "./LoginCadastro.jsx";
 import LoginForm from "./LoginForm.jsx";

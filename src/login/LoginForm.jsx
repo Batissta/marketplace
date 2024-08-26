@@ -7,8 +7,7 @@ const LoginForm = () => {
   const [usuario, setUsuario] = React.useState("");
   const [senha, setSenha] = React.useState("");
 
-const readUser = () => {
-};
+  const readUser = () => {};
   return (
     <div className={styles.loginConteudo}>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -40,7 +39,7 @@ const readUser = () => {
         <Link to={"/recuperar"} className={styles.navLink}>
           Esqueceu a senha?
         </Link>
-        <Link to="/cadastrar" className={styles.navLink}>
+        <Link to="/login/cadastro" className={styles.navLink}>
           Cadastrar
         </Link>
       </div>

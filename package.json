@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "csv": "^6.3.10",
-    "fs": "^0.0.1-security",
+    "fs": "^0.0.1",
     "marketplace": "file:",
     "parser": "^0.1.4",
     "react": "^18.3.1",

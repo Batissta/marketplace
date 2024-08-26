@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 5rem;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.headerButton {
+  font-size: xx-large;
+}
+
+.venderButton {
+  display: flex;
+  align-items: center;
+}
