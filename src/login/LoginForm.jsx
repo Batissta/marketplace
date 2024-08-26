@@ -7,11 +7,13 @@ const LoginForm = () => {
   const [usuario, setUsuario] = React.useState("");
   const [senha, setSenha] = React.useState("");
 
+const readUser = () => {
+};
   return (
     <div className={styles.loginConteudo}>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
-          <label htmlFor="username">Usuarioo</label>
+          <label htmlFor="username">Usuario</label>
           <input
             type="text"
             id="username"
