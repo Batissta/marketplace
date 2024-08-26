@@ -24,7 +24,9 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-
+a {
+  max-width: fit-content;
+}
 a,
 label,
 input {

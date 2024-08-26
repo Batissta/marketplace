@@ -1,29 +1,27 @@
+import { Link, NavLink } from "react-router-dom";
+import React from "react";
 import styles from "./Header.module.css";
+import useMedia from "../hooks/useMedia.jsx";
+import UserSvg from "../../public/UserSvg.jsx";
 
 function Header() {
+  const mobile = useMedia(('(width<=600px)'));
+  const [menuAtivo, setMenuAtivo] = React.useState(false)
   return (
-    <div className={styles.wrapper}>
+    <header className={styles.headerBg}>
       <div className={styles.header}>
-        <a href="/">Rest MarketPlace</a>
+        <Link to="/">
+          <h1 className={styles.headerh1}>Rest</h1>
+        </Link>
+        <ul className={`${mobile && styles.headerUlMobile} ${!mobile && styles.headerUlDesktop}`}>
+          <NavLink to="/produtos">Produtos</NavLink>
+          <NavLink to="/ajuda">Ajuda</NavLink>
+          <NavLink to="/login" className={styles.linkUser}>
+            Login <UserSvg />
+          </NavLink>
+        </ul>
       </div>
-      <ul className={styles.links}>
-        <li className={styles.headerButton}>
-          <a href="/sobre">Como Funciona?</a>
-        </li>
-        <li className={styles.headerButton}>
-          <a href="/precos">Quanto Custa?</a>
-        </li>
-        <li className={styles.headerButton}>
-          <a href="/crie">Crie seu negócio </a>
-        </li>
-        <li className={styles.headerButton}>
-          <a href="/ajuda"> Ajuda </a>
-        </li>
-      </ul>
-      <div className={styles.venderButton}>
-        <button className={styles.button}>Comece a vender!</button>
-      </div>
-    </div>
+    </header>
   );
 }
 

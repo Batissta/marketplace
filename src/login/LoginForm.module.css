@@ -1,5 +1,5 @@
 .loginForm {
-  height: 100vh;
+  height: calc(100vh - 50px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -12,11 +12,10 @@
   object-fit: cover;
 }
 .loginConteudo {
-  grid-column: 2;
   border-radius: 5px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
 }
 
 .loginConteudo form {
@@ -58,7 +57,24 @@
 }
 
 .navLink {
+  max-width: fit-content;
   color: #333;
   font-size: 0.625rem;
   text-decoration: underline;
+}
+
+@media (width<=600px) {
+  .loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginConteudo {
+    display: flex;
+    height: 100%;
+    grid-template-columns: 1fr;
+  }
+  .loginForm img {
+    display: none;
+  }
 }

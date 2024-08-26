@@ -1,27 +1,69 @@
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  height: 5rem;
-}
-.links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.headerBg {
+  height: 50px;
+  padding: 0 20px;
+  display: grid;
   align-items: center;
-  gap: 5rem;
+}
+.header {
+  display: grid;
+  grid-template-columns: 2fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.headerh1 {
+  color: #333;
+  text-transform: uppercase;
+  max-width: fit-content;
+  position: relative;
+}
+.headerh1::after {
+  content: "ADMIN";
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  font-size: 0.5rem;
+  padding-left: 12px;
+  color: #3333339d;
+}
+.header .headerUlDesktop {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.header .headerUlDesktop a {
+  text-transform: uppercase;
+  color: #333;
+  font-size: 0.625rem;
+}
+.header .headerUlDesktop a:global(.active) {
+  color: #575757;
 }
 
-.header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.header .headerUlDesktop a:hover {
+  color: #0e68dd;
 }
-.headerButton {
-  font-size: xx-large;
+.headerUlMobile {
+  position: absolute;
+  right: 0;
+  top: 40px;
 }
-
-.venderButton {
+.headerUlMobile a {
+  color: #333;
+}
+.linkUser {
   display: flex;
   align-items: center;
+  gap: 4px;
+}
+.linkUser svg {
+  transition: transform 0.2s;
+  padding-bottom: 3px;
+}
+.linkUser:hover svg {
+  transform: translateY(-1px);
+}
+.linkUser:hover svg path {
+  fill: #0e68dd;
 }
