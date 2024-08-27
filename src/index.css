@@ -19,7 +19,10 @@ p {
   padding: 0;
   margin: 0;
 }
-
+button {
+  padding: 0;
+  border: none;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -42,7 +45,7 @@ input {
   box-shadow: none;
   cursor: pointer;
   border: 1px solid #eee;
-  transition: border-color 0.2s linear;
+  transition: 0.2s linear;
 }
 
 .botao:hover {

@@ -1,0 +1,124 @@
+.nav {
+  display: flex;
+  font-size: 1rem;
+  gap: 1.2rem;
+}
+
+.nav a {
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: 0.2s;
+}
+.nav a:hover {
+  color: #0f89ec;
+}
+.nav a:hover svg path {
+  fill: #0f89ec;
+}
+
+.nav a:global(.active) {
+  color: #0f89ec;
+}
+.nav a:global(.active) svg path {
+  fill: #0f89ec;
+  transition: 0.2s;
+}
+.nav a:global(.active):hover {
+  color: #333;
+}
+.nav a:global(.active):hover svg path {
+  fill: #333;
+}
+
+.navMobile {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  top: 80px;
+  right: 10px;
+  padding: 0.4rem 1rem;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+}
+
+.navMobileAtivo {
+  animation: fadeIn 0.2s ease-out;
+  display: grid;
+}
+
+.navMobile a {
+  padding: 0.225rem;
+  display: grid;
+  grid-template-columns: auto 24px;
+  justify-items: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: #333;
+}
+
+.navMobile a svg {
+  margin: 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.navMobile a:global(.active) {
+  color: #0f89ec;
+}
+
+.mobileBotao {
+  background-color: transparent;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eeeeee48;
+  transition: 0.1s;
+  cursor: pointer;
+  color: #333;
+}
+
+.mobileBotao::after {
+  content: "";
+  display: block;
+  width: 1.2rem;
+  height: 2px;
+  border-radius: 2px;
+  background-color: currentColor;
+  box-shadow: 0 6px currentColor, 0 -6px currentColor;
+  transition: 0.2s;
+}
+
+.mobileBotao:focus,
+.mobileBotao:hover,
+.mobileBotaoAtivo {
+  outline: none;
+  border-color: #0f89ec;
+}
+
+.mobileBotaoAtivo::after {
+  transform: rotate(90deg);
+  width: 4px;
+  height: 4px;
+  box-shadow: 0 8px currentColor, 0 -8px currentColor;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@media (width <= 400px) {
+  .mobileBotao {
+    height: 32px;
+    width: 32px;
+  }
+}

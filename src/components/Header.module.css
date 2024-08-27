@@ -1,24 +1,21 @@
-.headerBg {
-  height: 50px;
-  padding: 0 20px;
-  display: grid;
-  align-items: center;
-}
 .header {
-  display: grid;
-  grid-template-columns: 2fr auto auto;
-  gap: 1rem;
-  align-items: center;
+  height: 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
   justify-content: space-between;
+  padding: 20px 60px;
+  align-items: center;
   position: relative;
 }
-.headerh1 {
+
+.header h1 {
   color: #333;
   text-transform: uppercase;
   max-width: fit-content;
   position: relative;
 }
-.headerh1::after {
+.header h1::after {
   content: "ADMIN";
   position: absolute;
   right: 0;
@@ -27,43 +24,16 @@
   padding-left: 12px;
   color: #3333339d;
 }
-.header .headerUlDesktop {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-.header .headerUlDesktop a {
-  text-transform: uppercase;
-  color: #333;
-  font-size: 0.625rem;
-}
-.header .headerUlDesktop a:global(.active) {
-  color: #575757;
+
+.header > a:hover h1 {
+  filter: blur(0px);
 }
 
-.header .headerUlDesktop a:hover {
-  color: #0e68dd;
-}
-.headerUlMobile {
-  position: absolute;
-  right: 0;
-  top: 40px;
-}
-.headerUlMobile a {
-  color: #333;
-}
-.linkUser {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.linkUser svg {
-  transition: transform 0.2s;
-  padding-bottom: 3px;
-}
-.linkUser:hover svg {
-  transform: translateY(-1px);
-}
-.linkUser:hover svg path {
-  fill: #0e68dd;
+@media (width <= 630px) {
+  .header {
+    padding: 20px 30px;
+  }
+  .header h1 {
+    font-size: 5vw;
+  }
 }
