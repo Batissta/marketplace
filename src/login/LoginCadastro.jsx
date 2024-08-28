@@ -9,6 +9,7 @@ const LoginCadastro = () => {
   const [dataNascimento, setDataNascimento] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
+
   return (
     <div className={styles.loginConteudo}>
       <form onSubmit={(e) => e.preventDefault()}>

@@ -12,8 +12,7 @@
 .produtos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-
+  gap: 2rem;
 }
 .produto {
   border: 1px solid lightgray;
@@ -22,7 +21,6 @@
   flex-direction: column;
   gap: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
-
 }
 .imgContainer {
   height: 200px;
@@ -36,8 +34,16 @@
   flex-direction: column;
   gap: 4px;
 }
-.buttonList {
+.buttonsList {
+  padding: 0 6px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 1rem;
+}
+.buttoEdit {
+  cursor: pointer;
+}
+.buttoEdit:hover {
+  scale: 1.1;
 }

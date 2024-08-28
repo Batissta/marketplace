@@ -3,7 +3,6 @@ import styles from "./HomePage.module.css";
 import Botao from "../components/Botao";
 import { Link } from "react-router-dom";
 
-
 function HomePage() {
   return (
     <section className={styles.box}>
@@ -15,23 +14,34 @@ function HomePage() {
             alt="Gerenciamento de produtos"
           />
           <h2>Gerenciamento de Produtos</h2>
-          <Link to={"/produtos"}> <Botao>Gerenciar produtos</Botao></Link>   
-               </div>
+          <Link to={"/produtos"}>
+            {" "}
+            <Botao>Gerenciar produtos</Botao>
+          </Link>
+        </div>
         <div className={styles.container}>
           <img
             src="https://blog.protarefa.com.br/wp-content/uploads/2019/02/users.jpg"
             alt="Gerenciamento de estoque"
           />
           <h2>Gerenciamento de Usuários</h2>
-          <Link to={"/usuarios"}> <Botao>Gerenciar usuários</Botao></Link>
+          <Link to={"/usuarios"}>
+            {" "}
+            <Botao>Gerenciar usuários</Botao>
+          </Link>
         </div>
         <div className={styles.container}>
           <img
-            src="https://irp-cdn.multiscreensite.com/324539d5/dms3rep/multi/gest%C3%A3o+de+estoque.jpg"
+            src={
+              "https://static.vecteezy.com/ti/vetor-gratis/p1/15639931-conceito-de-sistema-de-controle-de-estoque-gerente-profissional-verificando-mercadorias-e-estoque-gerenciamento-de-estoque-com-demanda-de-mercadorias-vetor.jpg"
+            }
             alt="Gerenciamento de estoque"
           />
           <h2>Gerenciamento de Estoque</h2>
-          <Link to={"/estoque"}> <Botao>Gerenciar usuários</Botao></Link>
+          <Link to={"/estoque"}>
+            {" "}
+            <Botao>Gerenciar usuários</Botao>
+          </Link>
         </div>
       </div>
     </section>

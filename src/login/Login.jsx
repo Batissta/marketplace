@@ -12,8 +12,7 @@ const Login = () => {
       />
       <Routes>
         <Route path="/" element={<LoginForm />} />
-        <Route path="cadastro" element={<LoginCadastro />} />
-        <Route path="recuparar" element={<LoginCadastro />} />
+        <Route path="/cadastro" element={<LoginCadastro />} />
       </Routes>
     </section>
   );
