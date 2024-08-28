@@ -13,13 +13,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+
 }
 .produto {
-  border: 1px solid #333;
+  border: 1px solid lightgray;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
+
 }
 .imgContainer {
   height: 200px;

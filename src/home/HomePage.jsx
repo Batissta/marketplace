@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./HomePage.module.css";
 import Botao from "../components/Botao";
-import UserSvg from "../../public/UserSvg";
+import { Link } from "react-router-dom";
+
 
 function HomePage() {
   return (
@@ -14,15 +15,15 @@ function HomePage() {
             alt="Gerenciamento de produtos"
           />
           <h2>Gerenciamento de Produtos</h2>
-          <Botao>Gerenciar produtos</Botao>
-        </div>
+          <Link to={"/produtos"}> <Botao>Gerenciar produtos</Botao></Link>   
+               </div>
         <div className={styles.container}>
           <img
             src="https://blog.protarefa.com.br/wp-content/uploads/2019/02/users.jpg"
             alt="Gerenciamento de estoque"
           />
           <h2>Gerenciamento de Usuários</h2>
-          <Botao>Gerenciar usuários</Botao>
+          <Link to={"/usuarios"}> <Botao>Gerenciar usuários</Botao></Link>
         </div>
         <div className={styles.container}>
           <img
@@ -30,7 +31,7 @@ function HomePage() {
             alt="Gerenciamento de estoque"
           />
           <h2>Gerenciamento de Estoque</h2>
-          <Botao>Gerenciar estoque</Botao>
+          <Link to={"/estoque"}> <Botao>Gerenciar usuários</Botao></Link>
         </div>
       </div>
     </section>
