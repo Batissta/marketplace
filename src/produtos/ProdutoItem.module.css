@@ -1,0 +1,39 @@
+.container {
+  padding: 2rem;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.container:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+.imgContainer {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.descText {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  gap: 4px;
+}
+.buttonsList {
+  padding: 0 6px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.buttoEdit {
+  display: flex;
+  background-color: transparent;
+  cursor: pointer;
+}
+.buttoEdit:hover {
+  scale: 1.1;
+}

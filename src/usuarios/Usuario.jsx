@@ -1,17 +1,15 @@
-import React from 'react';
-import styles from './Usuario.module.css';
-import Botao from '../components/Botao';
+import React from "react";
+import styles from "./Usuario.module.css";
+import Botao from "../components/Botao";
 
 const Usuario = () => {
   return (
     <section className={styles.box}>
-      <h1> Gerencimento </h1>
+      <h1>Gerencimento de Usuários</h1>
       <div className={styles.containers}>
         <div className={styles.container}>
           <img
             src="https://i.pinimg.com/originals/4e/45/88/4e458893b1fdc033508016e09fa5553c.jpg"
-            width={'200px'}
-            height={'auto'}
             alt="Foto de usuario"
           />
           <span>Pedro Lopes</span>
