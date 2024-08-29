@@ -1,5 +1,4 @@
 .box {
-  font-family: system-ui, -apple-system;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -9,13 +8,13 @@
   padding: 20px 40px;
 }
 .box h1::after {
-  margin-top: 0.8rem;
-  content: "";
-  background: linear-gradient(to right, var(--cor-1), #a8a8a848);
-  border-radius: 4px;
-  width: 100%;
-  height: 1px;
-  display: block;
+    margin-top: 0.8rem;
+    content: "";
+    background: linear-gradient(to right, var(--cor-1), #a8a8a848);
+    border-radius: 4px;
+    width: 100%;
+    height: 1px;
+    display: block;
 }
 .containers {
   display: grid;
@@ -34,38 +33,14 @@
 .container:hover {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.12);
 }
-.container h2 {
+.container span {
   padding-top: 0.5rem;
   font-size: 1.5rem;
+  font-weight: bold;
 }
-
 .container img {
-  height: 200px;
+  height: 280px;
   width: 100%;
+  margin: 0 auto;
   object-fit: cover;
-}
-.tituloHome {
-  font-size: 40px;
-  text-align: center;
-}
-
-@media (width < 900px) {
-  .containers {
-    grid-template-columns: 1fr;
-  }
-  .container a {
-    max-width: 100%;
-  }
-  .container a button {
-    width: 100%;
-  }
-}
-
-@media (width <= 400px) {
-  .box {
-    padding: 20px;
-  }
-  .container {
-    padding: 1rem;
-  }
 }

@@ -3,7 +3,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  font-family: system-ui, -apple-system;
 }
 .loginForm img {
   height: 100%;
@@ -39,7 +38,7 @@
   border-radius: 5px;
   border: 1px solid #dadada;
   outline: none;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 
 .loginConteudo form > button {
@@ -58,7 +57,7 @@
 .navLink {
   max-width: fit-content;
   color: #333;
-  font-size: 0.625rem;
+  font-size: .825rem;
   text-decoration: underline;
 }
 

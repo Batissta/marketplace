@@ -1,11 +1,11 @@
-import React from "react";
-import UserSvg from "../../public/UserSvg.jsx";
-import useMedia from "../hooks/useMedia";
-import { NavLink } from "react-router-dom";
-import styles from "./HeaderNav.module.css";
+import React from 'react';
+import UserSvg from '../../public/UserSvg.jsx';
+import useMedia from '../hooks/useMedia';
+import { NavLink } from 'react-router-dom';
+import styles from './HeaderNav.module.css';
 
 const HeaderNav = () => {
-  const mobile = useMedia("(width <= 600px)");
+  const mobile = useMedia('(width <= 600px)');
   const [mobileMenu, setMobileMenu] = React.useState(false);
 
   React.useEffect(() => {
@@ -28,7 +28,7 @@ const HeaderNav = () => {
         }`}
       >
         <NavLink to="/produtos">Produtos</NavLink>
-        <NavLink to="/ajuda">Usuarios</NavLink>
+        <NavLink to="/usuarios">Usuarios</NavLink>
         <NavLink to="/login">
           Login <UserSvg />
         </NavLink>
