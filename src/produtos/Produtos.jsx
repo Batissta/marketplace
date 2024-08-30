@@ -25,7 +25,7 @@ function Produtos() {
               modal={modal}
               setModal={setModal}
               dados={produto}
-              key={produto.h2}
+              key={produto && produto.h2}
             />
           ))}
       </div>

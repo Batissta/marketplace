@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./ProdutoModal.module.css";
 import Botao from "../components/Botao";
-import Lixeira from "../../public/Lixeira";
 import { UserContext } from "../userContext";
 import Error from "../helper/Error";
 
