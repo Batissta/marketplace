@@ -34,14 +34,3 @@
   height: 1px;
   display: block;
 }
-
-.adicionarProduto h1 {
-  font-size: 2rem;
-}
-
-.containers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background-color: transparent;
-  gap: 1rem;
-}

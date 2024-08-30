@@ -12,7 +12,22 @@ const ProdutoItem = ({ dados, setModal }) => {
         <h2>{dados.h2}</h2>
         <h3>{dados.h3}</h3>
         <span>{dados.span}</span>
-        <p>R$ {dados.p}</p>
+        {dados.desconto > 0 && (
+          <div>
+            <p className={styles.precoRiscado}>
+              R$ {dados.p.toFixed(2).replace(".", ",")}
+            </p>
+            <p>
+              R${" "}
+              {(dados.p - (dados.p * dados.desconto) / 100)
+                .toFixed(2)
+                .replace(".", ",")}
+            </p>
+          </div>
+        )}
+        {!dados.desconto > 0 && (
+          <p>R$ {dados.p.toFixed(2).replace(".", ",")}</p>
+        )}
       </div>
       <div className={styles.buttonsList}>
         <button

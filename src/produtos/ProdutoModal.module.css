@@ -7,11 +7,46 @@
   background: rgba(0, 0, 0, 0.4);
   display: flex;
   z-index: 1000;
-  padding: 2rem calc(4rem + 15px) 2rem 4rem;
+}
+:global(.box).box {
+  border-radius: 4px;
+  background-color: #eee;
+  height: 50vh;
+  display: flex;
+  align-self: center;
+  padding: 40px 80px;
+}
+.descontoExistente {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
 }
 
-/* @media (width <= 600px) {
-    .modal {
-      padding: 2rem calc(2rem + 15px) 2rem 2rem;
-    }
-} */
+.formModal {
+  display: flex;
+  flex-direction: column;
+}
+.formModal input {
+  margin-top: 4px;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+.decisoes {
+  display: flex;
+  flex-direction: column;
+}
+.decisoes button {
+  flex: 1;
+}
+.decisoes button:disabled {
+  background-color: #797979;
+  border-color: #797979;
+  color: #fff;
+}
+.decisoes button:disabled:hover {
+  background-color: #797979;
+  border-color: #797979;
+  color: #fff;
+}

@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
-    <section className={styles.box}>
+    <section className={"box"}>
       <h1>Painel de Controle</h1>
-      <div className={styles.containers}>
-        <div className={styles.container}>
+      <div className={"containers"}>
+        <div className={"container"}>
           <img
             src="https://techpearl.com/wp-content/uploads/2021/11/Product-management.jpg"
             alt="Gerenciamento de produtos"
@@ -19,7 +19,7 @@ function HomePage() {
             <Botao>Gerenciar produtos</Botao>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div className={"container"}>
           <img
             src="https://blog.protarefa.com.br/wp-content/uploads/2019/02/users.jpg"
             alt="Gerenciamento de estoque"
@@ -30,7 +30,7 @@ function HomePage() {
             <Botao>Gerenciar usuários</Botao>
           </Link>
         </div>
-        <div className={styles.container}>
+        <div className={"container"}>
           <img
             src={
               "https://static.vecteezy.com/ti/vetor-gratis/p1/15639931-conceito-de-sistema-de-controle-de-estoque-gerente-profissional-verificando-mercadorias-e-estoque-gerenciamento-de-estoque-com-demanda-de-mercadorias-vetor.jpg"

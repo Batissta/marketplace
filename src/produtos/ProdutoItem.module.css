@@ -22,6 +22,10 @@
   margin: 1rem 0;
   gap: 4px;
 }
+.precoRiscado {
+  text-decoration: line-through;
+  color: #33333396;
+}
 .buttonsList {
   padding: 0 6px;
   display: flex;
