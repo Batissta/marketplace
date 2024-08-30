@@ -9,9 +9,10 @@ const ProdutoItem = ({ dados, setModal }) => {
     React.useContext(UserContext);
 
   const excluiProduto = () => {
-    const novaListaProdutos = produtos.map((prod) => {
-      if (prod !== dados) return prod;
+    const novaListaProdutos = produtos.filter((prod) => {
+      return prod !== dados;
     });
+
     setProdutos(novaListaProdutos);
   };
   if (dados)

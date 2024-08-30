@@ -18,16 +18,19 @@ function Produtos() {
           <Mais />
         </Link>
       </h1>
-      <div className="containers">
-        {produtos &&
-          produtos.map((produto) => (
+      <div className={`${produtos.length > 0 && "containers"}`}>
+        {produtos.length > 0 &&
+          produtos.map((produto, index) => (
             <ProdutoItem
               modal={modal}
               setModal={setModal}
               dados={produto}
-              key={produto && produto.h2}
+              key={produto.h2}
             />
           ))}
+        {produtos.length === 0 && (
+          <h2 className={styles.nenhumProduto}>Nenhum produto cadastrado...</h2>
+        )}
       </div>
       {modal && <ProdutoModal modal={modal} setModal={setModal} />}
     </section>
