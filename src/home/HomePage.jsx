@@ -30,19 +30,6 @@ function HomePage() {
             <Botao>Gerenciar usuários</Botao>
           </Link>
         </div>
-        <div className={"container"}>
-          <img
-            src={
-              "https://static.vecteezy.com/ti/vetor-gratis/p1/15639931-conceito-de-sistema-de-controle-de-estoque-gerente-profissional-verificando-mercadorias-e-estoque-gerenciamento-de-estoque-com-demanda-de-mercadorias-vetor.jpg"
-            }
-            alt="Gerenciamento de estoque"
-          />
-          <h2>Gerenciamento de Estoque</h2>
-          <Link to={"/estoque"}>
-            {" "}
-            <Botao>Gerenciar usuários</Botao>
-          </Link>
-        </div>
       </div>
     </section>
   );

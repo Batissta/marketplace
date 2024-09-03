@@ -131,6 +131,10 @@ input:focus {
   width: 100%;
   object-fit: cover;
 }
+.mH80vh {
+  justify-content: start;
+  min-height: 80vh;
+}
 @media (width < 900px) {
   .containers {
     grid-template-columns: 1fr;

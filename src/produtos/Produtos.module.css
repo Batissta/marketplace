@@ -30,10 +30,7 @@
   height: 1px;
   display: block;
 }
-.mH80vh {
-  justify-content: start;
-  min-height: 80vh;
-}
+
 .nenhumProduto {
   width: 100%;
   color: #a0a0a0;

@@ -2,12 +2,18 @@ import React from "react";
 import Botao from "../components/Botao";
 import styles from "./UsuarioIndividual.module.css";
 import Arrow from "../../public/Arrow";
+import { UserContext } from "../userContext";
 
 const UsuarioIndividual = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const { usuarios, setUsuarios } = React.useContext(UserContext);
   const anoNascimento = user.dataNascimento.split("/")[2];
   const date = new Date().getFullYear();
 
+  const handleRemoveUsuario = () => {
+    const novaListaDeUsuarios = usuarios.filter((usuario) => usuario !== user);
+    setUsuarios(novaListaDeUsuarios);
+  };
   return (
     <div className={`container ${styles.containerUserIndividual}`}>
       <img src={user.imgSrc} alt={`foto de ${user.nome}`} />
@@ -44,7 +50,7 @@ const UsuarioIndividual = ({ user }) => {
           </div>
         )}
       </div>
-      <Botao>Remover usuário </Botao>
+      <Botao onClick={handleRemoveUsuario}>Remover usuário</Botao>
     </div>
   );
 };

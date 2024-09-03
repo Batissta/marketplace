@@ -12,7 +12,7 @@ function Produtos() {
 
   return (
     <section
-      className={`${styles.box} ${!(produtos.length > 0) && styles.mH80vh}`}
+      className={`${styles.box} ${!(produtos.length > 0) && "mH80vh"}`}
     >
       <h1>
         <p>Adicione um produto</p>
