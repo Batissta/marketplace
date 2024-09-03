@@ -1,33 +1,44 @@
-import React from "react";
-import styles from "./ProdutoModal.module.css";
-import Botao from "../components/Botao";
-import { UserContext } from "../userContext";
-import Error from "../helper/Error";
+import React from 'react';
+import styles from './ProdutoModal.module.css';
+import Botao from '../components/Botao';
+import Error from '../helper/Error';
+import { UserContext } from '../userContext';
 
 const ModalAdicionar = (props) => {
-  const { produtos, setProdutos } = React.useContext(UserContext);
-  const [url, setUrl] = React.useState("");
-  const [h2, setH2] = React.useState("");
-  const [h3, setH3] = React.useState("");
-  const [span, setSpan] = React.useState("");
-  const [p, setP] = React.useState("");
+  const { produtos, setProdutos, error, setError } =
+    React.useContext(UserContext);
+  const [url, setUrl] = React.useState('');
+  const [h2, setH2] = React.useState('');
+  const [h3, setH3] = React.useState('');
+  const [span, setSpan] = React.useState('');
+  const [p, setP] = React.useState('');
 
+  const validaForm = () => {
+    if (url && h2 && h3 && span && p) {
+      return true;
+    } else {
+      setError('Preencha todos os campos');
+      return false;
+    }
+  };
   const handleAdicionaProduto = () => {
-    const novoProduto = {
-      imgSrc: url,
-      h2,
-      h3,
-      span: `REF: ${span}`,
-      p: Number(p.replace(",", ".")),
-      desconto: 0,
-    };
-    setProdutos([...produtos, novoProduto]);
-    setUrl("");
-    setH2("");
-    setH3("");
-    setSpan("");
-    setP("");
-    props.setAdicionarProduto(false);
+    if (validaForm()) {
+      const novoProduto = {
+        imgSrc: url,
+        h2,
+        h3,
+        span: `REF: ${span}`,
+        p: Number(p.replace(',', '.')),
+        desconto: 0,
+      };
+      setProdutos([...produtos, novoProduto]);
+      setUrl('');
+      setH2('');
+      setH3('');
+      setSpan('');
+      setP('');
+      props.setAdicionarProduto(false);
+    }
   };
   return (
     <div className={`box ${styles.box}`}>
@@ -97,6 +108,7 @@ const ModalAdicionar = (props) => {
         </div>
         <Botao>Adicionar</Botao>
       </form>
+      <Error error={error} />
     </div>
   );
 };

@@ -1,15 +1,11 @@
-import React from "react";
-import styles from "./ProdutoModal.module.css";
-import ModalDesconto from "./ModalDesconto";
-import ModalAdicionar from "./ModalAdicionar";
+import React from 'react';
+import styles from './ProdutoModal.module.css';
+import ModalDesconto from './ModalDesconto';
+import ModalAdicionar from './ModalAdicionar';
+import { UserContext } from '../userContext';
 
 const ProdutoModal = (props) => {
-  const handleOutsideClick = (e) => {
-    if (e.currentTarget === e.target) {
-      props.setModal(null);
-      props.setAdicionarProduto(false);
-    }
-  };
+  const { error, setError } = React.useContext(UserContext);
   if (props.modal)
     return (
       <div
@@ -26,7 +22,10 @@ const ProdutoModal = (props) => {
       <div
         className={styles.modal}
         onClick={(e) => {
-          if (e.currentTarget === e.target) props.setAdicionarProduto(false);
+          if (e.currentTarget === e.target) {
+            props.setAdicionarProduto(false);
+            setError('');
+          }
         }}
       >
         <ModalAdicionar

@@ -1,12 +1,12 @@
-import React from "react";
-import UsuarioIndividual from "./UsuarioIndividual";
-import styles from "./UsuarioIndividual.module.css";
-import { UserContext } from "../userContext";
+import React from 'react';
+import UsuarioIndividual from './UsuarioIndividual';
+import styles from './UsuarioIndividual.module.css';
+import { UserContext } from '../userContext';
 
 const Usuario = () => {
   const { usuarios } = React.useContext(UserContext);
   return (
-    <section className={`box ${!(usuarios.length > 0) && "mH80vh"}`}>
+    <section className={`box`}>
       <h1>Gerencimento de Usuários</h1>
       <div
         className={`containers ${styles.containerUsers} ${

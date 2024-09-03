@@ -1,9 +1,9 @@
-import styles from "./Produtos.module.css";
-import Mais from "../../public/Mais.jsx";
-import React from "react";
-import ProdutoItem from "./ProdutoItem.jsx";
-import ProdutoModal from "./ProdutoModal.jsx";
-import { UserContext } from "../userContext.jsx";
+import styles from './Produtos.module.css';
+import Mais from '../../public/Mais.jsx';
+import React from 'react';
+import ProdutoItem from './ProdutoItem.jsx';
+import ProdutoModal from './ProdutoModal.jsx';
+import { UserContext } from '../userContext.jsx';
 
 function Produtos() {
   const [modal, setModal] = React.useState(null);
@@ -11,9 +11,7 @@ function Produtos() {
   const { produtos } = React.useContext(UserContext);
 
   return (
-    <section
-      className={`${styles.box} ${!(produtos.length > 0) && "mH80vh"}`}
-    >
+    <section className={`${styles.box} box`}>
       <h1>
         <p>Adicione um produto</p>
         <button
@@ -24,7 +22,7 @@ function Produtos() {
           <Mais />
         </button>
       </h1>
-      <div className={`${produtos.length > 0 && "containers"}`}>
+      <div className={`${produtos.length > 0 && 'containers'}`}>
         {produtos.length > 0 &&
           produtos.map((produto) => (
             <ProdutoItem

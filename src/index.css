@@ -91,9 +91,10 @@ input:focus {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  justify-content: center;
+  justify-content: start;
   gap: 1rem;
   max-width: 1200px;
+  min-height: 70vh;
   padding: 20px 40px;
 }
 .box h1::after {
