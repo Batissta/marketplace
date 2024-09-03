@@ -1,18 +1,15 @@
-import React from "react";
-import Lixeira from "../../public/Lixeira.jsx";
-import Lapis from "../../public/Lapis.jsx";
-import styles from "./ProdutoItem.module.css";
-import { UserContext } from "../userContext.jsx";
+import React from 'react';
+import Lixeira from '../../public/Lixeira.jsx';
+import Lapis from '../../public/Lapis.jsx';
+import styles from './ProdutoItem.module.css';
+import { UserContext } from '../userContext.jsx';
 
 const ProdutoItem = ({ dados, setModal }) => {
   const { produtos, setProdutos, error, setError } =
     React.useContext(UserContext);
 
   const excluiProduto = () => {
-    const novaListaProdutos = produtos.filter((prod) => {
-      return prod !== dados;
-    });
-
+    const novaListaProdutos = produtos.filter((prod) => prod !== dados);
     setProdutos(novaListaProdutos);
   };
   if (dados)
@@ -26,18 +23,18 @@ const ProdutoItem = ({ dados, setModal }) => {
           {dados.desconto > 0 && (
             <div>
               <p className={styles.precoRiscado}>
-                R$ {dados.p.toFixed(2).replace(".", ",")}
+                R$ {dados.p.toFixed(2).replace('.', ',')}
               </p>
               <p>
-                R${" "}
+                R${' '}
                 {(dados.p - (dados.p * dados.desconto) / 100)
                   .toFixed(2)
-                  .replace(".", ",")}
+                  .replace('.', ',')}
               </p>
             </div>
           )}
           {!dados.desconto > 0 && (
-            <p>R$ {dados.p.toFixed(2).replace(".", ",")}</p>
+            <p>R$ {dados.p.toFixed(2).replace('.', ',')}</p>
           )}
         </div>
         <div className={styles.buttonsList}>

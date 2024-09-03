@@ -4,36 +4,42 @@ import ModalDesconto from './ModalDesconto';
 import ModalAdicionar from './ModalAdicionar';
 import { UserContext } from '../userContext';
 
-const ProdutoModal = (props) => {
+const ProdutoModal = ({
+  adicionarProduto,
+  setAdicionarProduto,
+  modal,
+  setModal,
+  ...props
+}) => {
   const { error, setError } = React.useContext(UserContext);
-  if (props.modal)
+  if (modal)
     return (
       <div
         className={styles.modal}
         onClick={(e) => {
           if (e.currentTarget === e.target) {
-            props.setModal(null);
+            setModal(null);
             setError('');
           }
         }}
       >
-        <ModalDesconto modal={props.modal} setModal={props.setModal} />
+        <ModalDesconto modal={modal} setModal={setModal} />
       </div>
     );
-  else if (props.adicionarProduto)
+  else if (adicionarProduto)
     return (
       <div
         className={styles.modal}
         onClick={(e) => {
           if (e.currentTarget === e.target) {
-            props.setAdicionarProduto(false);
+            setAdicionarProduto(false);
             setError('');
           }
         }}
       >
         <ModalAdicionar
-          adicionarProduto={props.adicionarProduto}
-          setAdicionarProduto={props.setAdicionarProduto}
+          adicionarProduto={adicionarProduto}
+          setAdicionarProduto={setAdicionarProduto}
         />
       </div>
     );
