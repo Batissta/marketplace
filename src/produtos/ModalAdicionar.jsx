@@ -26,7 +26,7 @@ const ModalAdicionar = (props) => {
       const novoProduto = {
         imgSrc: url,
         h2,
-        h3,
+        h3: `Marca: ${h3}`,
         span: `REF: ${span}`,
         p: Number(p.replace(',', '.')),
         desconto: 0,
@@ -56,6 +56,7 @@ const ModalAdicionar = (props) => {
           <input
             id="forURL"
             type="text"
+            placeholder="https://damyller.vtexassets.com/arquivos/ids/848547-600-900/Camisa-Feminina-Botoes-Xadrez-Classico-Frente"
             value={url}
             onChange={({ target }) => {
               setUrl(target.value);
@@ -67,6 +68,7 @@ const ModalAdicionar = (props) => {
           <input
             id="forURL"
             type="text"
+            placeholder="Camisa Feminina de Botões "
             value={h2}
             onChange={({ target }) => {
               setH2(target.value);
@@ -78,6 +80,7 @@ const ModalAdicionar = (props) => {
           <input
             id="forURL"
             type="text"
+            placeholder="Damyller"
             value={h3}
             onChange={({ target }) => {
               setH3(target.value);
@@ -89,6 +92,7 @@ const ModalAdicionar = (props) => {
           <input
             id="forURL"
             type="text"
+            placeholder="552372"
             value={span}
             onChange={({ target }) => {
               setSpan(target.value);
@@ -100,6 +104,7 @@ const ModalAdicionar = (props) => {
           <input
             id="forURL"
             type="text"
+            placeholder="999,90"
             value={p}
             onChange={({ target }) => {
               setP(target.value);

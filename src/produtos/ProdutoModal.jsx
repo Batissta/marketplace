@@ -11,7 +11,10 @@ const ProdutoModal = (props) => {
       <div
         className={styles.modal}
         onClick={(e) => {
-          if (e.currentTarget === e.target) props.setModal(null);
+          if (e.currentTarget === e.target) {
+            props.setModal(null);
+            setError('');
+          }
         }}
       >
         <ModalDesconto modal={props.modal} setModal={props.setModal} />

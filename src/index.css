@@ -95,7 +95,7 @@ input:focus {
   gap: 1rem;
   max-width: 1200px;
   min-height: 70vh;
-  padding: 20px 40px;
+  padding: 20px 40px 40px 20px;
 }
 .box h1::after {
   margin-top: 0.8rem;
