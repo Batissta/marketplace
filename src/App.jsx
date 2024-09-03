@@ -1,11 +1,12 @@
-import React from 'react';
-import Login from './login/Login.jsx';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './home/HomePage.jsx';
-import Header from './components/Header.jsx';
-import Produtos from './produtos/Produtos.jsx';
-import Usuario from './usuarios/Usuario.jsx';
-import { UserStorage } from './userContext.jsx';
+import React from "react";
+import Login from "./login/Login.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./home/HomePage.jsx";
+import Header from "./components/Header.jsx";
+import Produtos from "./produtos/Produtos.jsx";
+import Usuario from "./usuarios/Usuario.jsx";
+import { UserStorage } from "./userContext.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/produtos" element={<Produtos />} />
           <Route path="/usuarios" element={<Usuario />} />
         </Routes>
+        <Footer />
       </UserStorage>
     </BrowserRouter>
   );

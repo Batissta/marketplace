@@ -1,10 +1,9 @@
 import React from "react";
-import fs from "fs";
-export const UserContext = React.createContext();
+// import fs from "fs";
 
+export const UserContext = React.createContext();
 export const UserStorage = ({ children }) => {
   const [error, setError] = React.useState("");
-
   const [produtos, setProdutos] = React.useState([
     {
       imgSrc:
@@ -12,7 +11,7 @@ export const UserStorage = ({ children }) => {
       h2: "Bolsa Baú Feminina Stephanie Transversal Em Couro",
       h3: `
   Marca: JFE`,
-      span: "Ref.: 1060 - Croco caramelo",
+      span: "REF: 1060 - Croco caramelo",
       p: 451.4,
       desconto: 50,
     },
@@ -40,7 +39,7 @@ export const UserStorage = ({ children }) => {
   ]);
 
   // const lerProdutos = () => {
-  //   const conteudo = fs.readFileSync('Produtos.json', 'utf8');
+  //   const conteudo = fs.readFileSync("Produtos.json", "utf8");
   //   const dadosExistentes = JSON.parse(conteudo);
   //   return dadosExistentes;
   // };
@@ -69,7 +68,6 @@ export const UserStorage = ({ children }) => {
 
   //   fs.writeFileSync('dados.json', JsonStringfado);
   // };
-
   return (
     <UserContext.Provider value={{ produtos, setProdutos, error, setError }}>
       {children}

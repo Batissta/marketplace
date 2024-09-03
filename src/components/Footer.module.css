@@ -1,0 +1,53 @@
+.footer {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 60px;
+  margin-top: 60px;
+  align-items: center;
+  position: relative;
+  background-color: var(--cor-1);
+}
+.mensagemFooter {
+  display: grid;
+  gap: 0.2rem;
+  margin-bottom: 2rem;
+}
+.mensagemFooter p {
+  font-size: 1rem;
+  color: #eee;
+  text-align: center;
+}
+.mensagemFooter p:first-of-type {
+  letter-spacing: 4px;
+}
+.footerNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.footerNav a {
+  font-size: 1rem;
+  text-transform: lowercase;
+  text-decoration: underline;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.footerNav a svg {
+  width: 14px;
+  height: 14px;
+}
+.footerNav a svg path {
+  stroke: #aaa;
+}
+.footerNav a:hover {
+  color: #fff;
+}
+.footerNav a:hover svg path {
+  stroke: #fff;
+}

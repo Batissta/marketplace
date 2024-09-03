@@ -1,0 +1,51 @@
+:global(.containers).containerUsers {
+  align-items: start;
+}
+:global(.container).containerUserIndividual {
+  justify-content: start;
+  transition: 0.3s ease;
+}
+.username {
+  color: var(--cor-1);
+}
+.cpf {
+  color: var(--cor-1);
+}
+.tituloNome {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.2rem;
+  flex-wrap: wrap;
+}
+.gaveta > button {
+  background-color: transparent;
+  text-transform: uppercase;
+  border: 1px solid var(--cor-5);
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 12px 0;
+}
+.gaveta > button svg path {
+  stroke: var(--cor-1);
+}
+.gavetaInfo {
+  display: flex;
+  flex-direction: column;
+  animation: surgeDeCima 0.3s ease;
+}
+@keyframes surgeDeCima {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

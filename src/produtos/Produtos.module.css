@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: center;
 }
-.box h1 a {
+.box h1 button {
   cursor: pointer;
   width: 32px;
   height: 32px;
@@ -30,9 +30,25 @@
   height: 1px;
   display: block;
 }
+.mH80vh {
+  justify-content: start;
+  min-height: 80vh;
+}
 .nenhumProduto {
   width: 100%;
   color: #a0a0a0;
   font-size: 0.875rem;
   text-align: center;
+}
+
+@media (width<=400px) {
+  .box h1 p {
+    display: none;
+  }
+  .box h1 button {
+    position: inherit;
+    margin: 0 auto;
+    width: 40px;
+    height: 40px;
+  }
 }
