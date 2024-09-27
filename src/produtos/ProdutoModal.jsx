@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './ProdutoModal.module.css';
-import ModalDesconto from './ModalDesconto';
-import ModalAdicionar from './ModalAdicionar';
-import { UserContext } from '../userContext';
+import React from "react";
+import styles from "./ProdutoModal.module.css";
+import ModalDesconto from "./ModalDesconto";
+import ModalAdicionar from "./ModalAdicionar";
+import { UserContext } from "../userContext";
 
 const ProdutoModal = ({
   adicionarProduto,
@@ -11,7 +11,7 @@ const ProdutoModal = ({
   setModal,
   ...props
 }) => {
-  const { error, setError } = React.useContext(UserContext);
+  const { error } = React.useContext(UserContext);
   if (modal)
     return (
       <div
@@ -19,7 +19,6 @@ const ProdutoModal = ({
         onClick={(e) => {
           if (e.currentTarget === e.target) {
             setModal(null);
-            setError('');
           }
         }}
       >
@@ -33,7 +32,6 @@ const ProdutoModal = ({
         onClick={(e) => {
           if (e.currentTarget === e.target) {
             setAdicionarProduto(false);
-            setError('');
           }
         }}
       >

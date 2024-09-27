@@ -5,62 +5,28 @@ import { UserContext } from "../userContext";
 import Error from "../helper/Error";
 
 const ModalDesconto = ({ modal, setModal }) => {
-  const [produto, setProduto] = React.useState(null);
   const [desconto, setDesconto] = React.useState(0);
-  const { produtos, setProdutos, error, setError } =
-    React.useContext(UserContext);
-
-  const handleRemoveDesconto = () => {
-    const descontoRemovido = {
-      imgSrc: modal.imgSrc,
-      h2: modal.h2,
-      h3: modal.h3,
-      span: modal.span,
-      p: modal.p,
-      desconto: 0,
-    };
-    setProduto(descontoRemovido);
-    const novosProdutos = produtos.map((produto) => {
-      if (produto.h2 === modal.h2) return descontoRemovido;
-      else return produto;
-    });
-    setProdutos(novosProdutos);
-  };
+  const { updateOne, error, setError, loading } = React.useContext(UserContext);
 
   const handleNovoDesconto = () => {
     if (desconto > 0 && desconto <= 90) {
-      const produtoComDesconto = {
-        imgSrc: modal.imgSrc,
-        h2: modal.h2,
-        h3: modal.h3,
-        span: modal.span,
-        p: modal.p,
-        desconto: desconto,
-      };
-      setProduto(produtoComDesconto);
-      const novosProdutos = produtos.map((produto) => {
-        if (produto.h2 === modal.h2) return produtoComDesconto;
-        else return produto;
-      });
-      setProdutos(novosProdutos);
+      updateOne(modal._id, Number(desconto));
       setModal(null);
     } else {
       setError("O desconto deve ser entre 1 e 90%.");
     }
   };
+
   React.useEffect(() => {
-    setProduto(modal);
-  }, []);
-  React.useEffect(() => {
-    if (modal.desconto > 0) setDesconto(modal.desconto);
-  }, [produto]);
-  if (produto)
+    setDesconto(modal.promocao);
+  }, [modal]);
+  if (modal)
     return (
       <div className={`box ${styles.box}`}>
         <h1>Gerencie cupons de desconto </h1>
-        {produto.desconto > 0 && (
+        {modal.promocao > 0 && (
           <p className={styles.descontoExistente}>
-            Este produto possui um desconto de {produto.desconto}%
+            Este modal possui um desconto de {modal.promocao}%
           </p>
         )}
         <form
@@ -81,15 +47,19 @@ const ModalDesconto = ({ modal, setModal }) => {
           <div className={styles.decisoes}>
             <Botao
               className={"botaoInverso"}
-              onClick={handleRemoveDesconto}
-              disabled={!produto.desconto > 0 ? true : false}
+              onClick={() => {
+                updateOne(modal._id, 0);
+                setModal(null);
+              }}
+              disabled={modal.promocao > 0 ? false : true}
             >
-              Remover Desconto
+              {loading && <div className="loading"></div>}
+              {!loading && "Remover Desconto"}
             </Botao>
-            {produto.desconto > 0 && (
+            {modal.promocao > 0 && (
               <Botao onClick={handleNovoDesconto}>Atualizar Desconto</Botao>
             )}
-            {produto.desconto === 0 && (
+            {modal.promocao === 0 && (
               <Botao onClick={handleNovoDesconto}>Aplicar Desconto</Botao>
             )}
             {error && <Error error={error} />}

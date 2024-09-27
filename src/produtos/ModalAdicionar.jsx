@@ -1,42 +1,42 @@
-import React from 'react';
-import styles from './ProdutoModal.module.css';
-import Botao from '../components/Botao';
-import Error from '../helper/Error';
-import { UserContext } from '../userContext';
+import React from "react";
+import styles from "./ProdutoModal.module.css";
+import Botao from "../components/Botao";
+import Error from "../helper/Error";
+import { UserContext } from "../userContext";
 
 const ModalAdicionar = (props) => {
-  const { produtos, setProdutos, error, setError } =
-    React.useContext(UserContext);
-  const [url, setUrl] = React.useState('');
-  const [h2, setH2] = React.useState('');
-  const [h3, setH3] = React.useState('');
-  const [span, setSpan] = React.useState('');
-  const [p, setP] = React.useState('');
+  const { insertOne, error, setError } = React.useContext(UserContext);
+  const [imagem, setImagem] = React.useState("");
+  const [nome, setNome] = React.useState("");
+  const [tipo, setTipo] = React.useState("");
+  const [descricao, setDescricao] = React.useState("");
+  const [marca, setMarca] = React.useState("");
+  const [preco, setPreco] = React.useState("");
 
   const validaForm = () => {
-    if (url && h2 && h3 && span && p) {
+    if (imagem && nome && descricao && tipo && marca) {
       return true;
     } else {
-      setError('Preencha todos os campos');
+      setError("Preencha todos os campos");
       return false;
     }
   };
   const handleAdicionaProduto = () => {
     if (validaForm()) {
-      const novoProduto = {
-        imgSrc: url,
-        h2,
-        h3: `Marca: ${h3}`,
-        span: `REF: ${span}`,
-        p: Number(p.replace(',', '.')),
-        desconto: 0,
-      };
-      setProdutos([...produtos, novoProduto]);
-      setUrl('');
-      setH2('');
-      setH3('');
-      setSpan('');
-      setP('');
+
+      insertOne({
+        nome,
+        tipo,
+        descricao,
+        imagem,
+        preco: Number(preco.replace(",", ".")),
+      });
+      setImagem("");
+      setNome("");
+      setTipo("");
+      setDescricao("");
+      setPreco(0);
+      setDescricao("");
       props.setAdicionarProduto(false);
     }
   };
@@ -52,62 +52,74 @@ const ModalAdicionar = (props) => {
         className={`${styles.formModal} ${styles.formModalAdicionar}`}
       >
         <div>
-          <label htmlFor="forURL">URL da imagem: </label>
+          <label htmlFor="forImagem">URL da imagem: </label>
           <input
-            id="forURL"
+            id="forImagem"
             type="text"
-            placeholder="https://damyller.vtexassets.com/arquivos/ids/848547-600-900/Camisa-Feminina-Botoes-Xadrez-Classico-Frente"
-            value={url}
+            placeholder="https://link-da-imagem-de-sua-peça.png"
+            value={imagem}
             onChange={({ target }) => {
-              setUrl(target.value);
+              setImagem(target.value);
             }}
           />
         </div>
         <div>
-          <label htmlFor="forURL">Nome do produto: </label>
+          <label htmlFor="forNome">Nome do produto: </label>
           <input
-            id="forURL"
+            id="forNome"
             type="text"
-            placeholder="Camisa Feminina de Botões "
-            value={h2}
+            placeholder="MacBook 12 pro"
+            value={nome}
             onChange={({ target }) => {
-              setH2(target.value);
+              setNome(target.value);
             }}
           />
         </div>
         <div>
-          <label htmlFor="forURL">Marca do produto: </label>
+          <label htmlFor="forTipo">Tipo do produto: </label>
           <input
-            id="forURL"
+            id="forTipo"
             type="text"
-            placeholder="Damyller"
-            value={h3}
+            placeholder="Eletrônico"
+            value={tipo}
             onChange={({ target }) => {
-              setH3(target.value);
+              setTipo(target.value);
             }}
           />
         </div>
         <div>
-          <label htmlFor="forURL">Identificação: </label>
+          <label htmlFor="forDescricao">Descrição: </label>
           <input
-            id="forURL"
+            id="forDescricao"
             type="text"
-            placeholder="552372"
-            value={span}
+            placeholder="Laptop de 13 polegadas; Processador..."
+            value={descricao}
             onChange={({ target }) => {
-              setSpan(target.value);
+              setDescricao(target.value);
             }}
           />
         </div>
         <div>
-          <label htmlFor="forURL">Preço: </label>
+          <label htmlFor="forMarca">Marca: </label>
           <input
-            id="forURL"
+            id="forMarca"
             type="text"
-            placeholder="999,90"
-            value={p}
+            placeholder="APPLE"
+            value={marca}
             onChange={({ target }) => {
-              setP(target.value);
+              setMarca(target.value);
+            }}
+          />
+        </div>
+        <div>
+          <label htmlFor="forPreco">Preço: </label>
+          <input
+            id="forPreco"
+            type="text"
+            placeholder="999.9"
+            value={preco}
+            onChange={({ target }) => {
+              setPreco(target.value);
             }}
           />
         </div>

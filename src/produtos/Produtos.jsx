@@ -1,9 +1,9 @@
-import styles from './Produtos.module.css';
-import Mais from '../../public/Mais.jsx';
-import React from 'react';
-import ProdutoItem from './ProdutoItem.jsx';
-import ProdutoModal from './ProdutoModal.jsx';
-import { UserContext } from '../userContext.jsx';
+import styles from "./Produtos.module.css";
+import Mais from "../../public/Mais.jsx";
+import React from "react";
+import ProdutoItem from "./ProdutoItem.jsx";
+import ProdutoModal from "./ProdutoModal.jsx";
+import { UserContext } from "../userContext.jsx";
 
 function Produtos() {
   const [modal, setModal] = React.useState(null);
@@ -22,17 +22,17 @@ function Produtos() {
           <Mais />
         </button>
       </h1>
-      <div className={`${produtos.length > 0 && 'containers'}`}>
-        {produtos.length > 0 &&
+      <div className={`${produtos && "containers"}`}>
+        {produtos &&
           produtos.map((produto) => (
             <ProdutoItem
               modal={modal}
               setModal={setModal}
               dados={produto}
-              key={produto.h2}
+              key={produto.nome}
             />
           ))}
-        {produtos.length === 0 && (
+        {!produtos && (
           <h2 className={styles.nenhumProduto}>Nenhum produto cadastrado...</h2>
         )}
       </div>

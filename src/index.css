@@ -136,6 +136,20 @@ input:focus {
   justify-content: start;
   min-height: 80vh;
 }
+.loading {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #bbb;
+  border-right: transparent;
+  animation: loading 1s infinite backwards;
+}
+@keyframes loading {
+  to {
+    rotate: 360deg;
+  }
+}
 @media (width < 900px) {
   .containers {
     grid-template-columns: 1fr;
