@@ -44,7 +44,7 @@ const ProdutoItem = ({ dados, setModal }) => {
           <button
             className={styles.buttoEdit}
             onClick={() => {
-              deleteOne(dados);
+              deleteOne(`https://backrestend.vervel.app/${dados._id}`);
             }}
           >
             <Lixeira />

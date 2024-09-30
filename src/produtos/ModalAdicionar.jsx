@@ -23,14 +23,16 @@ const ModalAdicionar = (props) => {
   };
   const handleAdicionaProduto = () => {
     if (validaForm()) {
-
-      insertOne({
-        nome,
-        tipo,
-        descricao,
-        imagem,
-        preco: Number(preco.replace(",", ".")),
-      });
+      insertOne(
+        {
+          nome,
+          tipo,
+          descricao,
+          imagem,
+          preco: Number(preco.replace(".", "").replace(',', '.')),
+        },
+        `https://backrestend.vercel.app/produtos/`
+      );
       setImagem("");
       setNome("");
       setTipo("");

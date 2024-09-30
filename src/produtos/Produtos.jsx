@@ -8,7 +8,7 @@ import { UserContext } from "../userContext.jsx";
 function Produtos() {
   const [modal, setModal] = React.useState(null);
   const [adicionarProduto, setAdicionarProduto] = React.useState(false);
-  const { produtos } = React.useContext(UserContext);
+  const { produtos, loading } = React.useContext(UserContext);
 
   return (
     <section className={`${styles.box} box`}>
@@ -22,8 +22,14 @@ function Produtos() {
           <Mais />
         </button>
       </h1>
-      <div className={`${produtos && "containers"}`}>
-        {produtos &&
+      <div
+        className={`containers ${styles.containerProdutos} ${
+          (loading || !produtos) && styles.containerVazio
+        }`}
+      >
+        {loading && <div className="loading gg"></div>}
+        {!loading &&
+          produtos &&
           produtos.map((produto) => (
             <ProdutoItem
               modal={modal}
@@ -32,7 +38,7 @@ function Produtos() {
               key={produto.nome}
             />
           ))}
-        {!produtos && (
+        {!loading && produtos && produtos.lenght === 0 && (
           <h2 className={styles.nenhumProduto}>Nenhum produto cadastrado...</h2>
         )}
       </div>

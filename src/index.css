@@ -137,6 +137,7 @@ input:focus {
   min-height: 80vh;
 }
 .loading {
+  margin: 0 auto;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -144,6 +145,10 @@ input:focus {
   border: 1px solid #bbb;
   border-right: transparent;
   animation: loading 1s infinite backwards;
+}
+.gg {
+  width: 80px;
+  height: 80px;
 }
 @keyframes loading {
   to {

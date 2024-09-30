@@ -10,7 +10,10 @@ const ModalDesconto = ({ modal, setModal }) => {
 
   const handleNovoDesconto = () => {
     if (desconto > 0 && desconto <= 90) {
-      updateOne(modal._id, Number(desconto));
+      updateOne(
+        `https://backrestend.vercel.app/produtos/${modal._id}`,
+        Number(desconto)
+      );
       setModal(null);
     } else {
       setError("O desconto deve ser entre 1 e 90%.");
@@ -48,7 +51,10 @@ const ModalDesconto = ({ modal, setModal }) => {
             <Botao
               className={"botaoInverso"}
               onClick={() => {
-                updateOne(modal._id, 0);
+                updateOne(
+                  `https://backrestend.vercel.app/produtos/${modal._id}`,
+                  0
+                );
                 setModal(null);
               }}
               disabled={modal.promocao > 0 ? false : true}

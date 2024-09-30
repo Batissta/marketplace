@@ -7,6 +7,13 @@
 }
 :global(.containers).containerVazio {
   grid-template-columns: 1fr;
+  justify-content: center;
+}
+.nenhumCliente {
+  width: 100%;
+  color: #a0a0a0;
+  font-size: 0.875rem;
+  text-align: center;
 }
 .username {
   color: var(--cor-1);

@@ -1,3 +1,9 @@
+:global(.containers).containerProdutos {
+  align-items: start;
+}
+:global(.containers).containerVazio {
+  grid-template-columns: 1fr;
+}
 .box {
   display: flex;
   flex-direction: column;
