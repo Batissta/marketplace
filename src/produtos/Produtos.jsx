@@ -38,9 +38,9 @@ function Produtos() {
               key={produto.nome}
             />
           ))}
-        {!loading && produtos && produtos.lenght === 0 && (
-          <h2 className={styles.nenhumProduto}>Nenhum produto cadastrado...</h2>
-        )}
+      {!loading && !produtos &&(
+        <h2 className={styles.nenhumProduto}>Nenhum produto cadastrado...</h2>
+      )}
       </div>
       {adicionarProduto && (
         <ProdutoModal

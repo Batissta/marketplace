@@ -19,11 +19,11 @@ const Usuario = () => {
           usuarios.map((user) => (
             <UsuarioIndividual user={user} key={user.nome} />
           ))}
-        {usuarios && usuarios.length === 0 && (
-          <h2 className={styles.nenhumProduto}>
-            Nenhum administrador cadastrado? Tem algo de errado.
-          </h2>
-        )}
+       {!loading && !usuarios && (
+        <h2 className={styles.nenhumProduto}>
+          Nenhum administrador cadastrado? Tem algo de errado.
+        </h2>
+       )}
       </div>
     </section>
   );
