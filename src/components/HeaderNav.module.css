@@ -106,6 +106,22 @@
   height: 4px;
   box-shadow: 0 8px currentColor, 0 -8px currentColor;
 }
+.buttonLogOut {
+  background-color: transparent;
+  cursor: pointer;
+}
+.buttonLogOut:hover svg {
+  position: relative;
+  overflow: visible;
+}
+.buttonLogOut:hover svg path {
+  transition: 0.3s;
+  position: absolute;
+  transform: translateX(7px);
+}
+.buttonLogOut:hover svg path:last-child {
+  transform: initial;
+}
 
 @keyframes fadeIn {
   from {

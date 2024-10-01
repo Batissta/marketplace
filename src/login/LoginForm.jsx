@@ -45,9 +45,6 @@ const LoginForm = () => {
         <Botao>login</Botao>
       </form>
       <div className={styles.navegue}>
-        <Link to={"/recuperar"} className={styles.navLink}>
-          Esqueceu a senha?
-        </Link>
         <Link to="/login/cadastro" className={styles.navLink}>
           Cadastrar
         </Link>

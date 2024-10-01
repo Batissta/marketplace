@@ -10,6 +10,18 @@ function HomePage() {
       <div className={"containers"}>
         <div className={"container"}>
           <img
+            src="https://blog.protarefa.com.br/wp-content/uploads/2019/02/users.jpg"
+            alt="Gerenciamento de estoque"
+          />
+          <h2>Gerenciamento de Administradores</h2>
+          <Link to={"/usuarios"}>
+            {" "}
+            <Botao>Gerenciar administradores</Botao>
+          </Link>
+        </div>
+
+        <div className={"container"}>
+          <img
             src="https://techpearl.com/wp-content/uploads/2021/11/Product-management.jpg"
             alt="Gerenciamento de produtos"
           />
@@ -22,12 +34,12 @@ function HomePage() {
         <div className={"container"}>
           <img
             src="https://blog.protarefa.com.br/wp-content/uploads/2019/02/users.jpg"
-            alt="Gerenciamento de estoque"
+            alt="Gerenciamento de clientes"
           />
-          <h2>Gerenciamento de Usuários</h2>
-          <Link to={"/usuarios"}>
+          <h2>Gerenciamento de Clientes</h2>
+          <Link to={"/clientes"}>
             {" "}
-            <Botao>Gerenciar usuários</Botao>
+            <Botao>Gerenciar clientes</Botao>
           </Link>
         </div>
       </div>

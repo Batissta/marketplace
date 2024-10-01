@@ -1,13 +1,14 @@
 import React from "react";
 import UserSvg from "../../public/UserSvg.jsx";
-import useMedia from "../hooks/useMedia";
+import useMedia from "../hooks/useMedia.jsx";
 import { NavLink } from "react-router-dom";
 import styles from "./HeaderNav.module.css";
 import { UserContext } from "../userContext.jsx";
+import LogOut from "../../public/LogOut.jsx";
 
 const HeaderNav = () => {
   const mobile = useMedia("(width <= 600px)");
-  const { logado, usuario } = React.useContext(UserContext);
+  const { logado, usuario, logOut } = React.useContext(UserContext);
   const [mobileMenu, setMobileMenu] = React.useState(false);
 
   React.useEffect(() => {
@@ -34,11 +35,11 @@ const HeaderNav = () => {
             <NavLink to="/usuarios">Administradores</NavLink>
             <NavLink to="/clientes">Clientes</NavLink>
             <NavLink to="/produtos">Produtos</NavLink>
-            <NavLink to="/login">
-              {usuario && usuario.nome}
-              {!usuario && "Conta"}
-              <UserSvg />
-            </NavLink>
+            <NavLink to="/usuarios">{usuario && usuario.nome}</NavLink>
+            <button className={styles.buttonLogOut} onClick={() => logOut()}>
+              {" "}
+              <LogOut />
+            </button>
           </>
         )}
         {!logado && (
