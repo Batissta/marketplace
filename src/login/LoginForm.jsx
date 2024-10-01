@@ -2,23 +2,29 @@ import React from "react";
 import styles from "./LoginForm.module.css";
 import Botao from "../components/Botao";
 import { Link } from "react-router-dom";
+import { UserContext } from "../userContext.jsx";
 
 const LoginForm = () => {
-  const [usuario, setUsuario] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
-
+  const { login } = React.useContext(UserContext);
   return (
     <div className={styles.loginConteudo}>
-      Login
-      <form onSubmit={(e) => e.preventDefault()}>
+      <h1>Login</h1>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (email && senha) login({ email, senha });
+        }}
+      >
         <div>
-          <label htmlFor="username">Usuario</label>
+          <label htmlFor="username">Email</label>
           <input
-            type="text"
+            type="email"
             id="username"
-            value={usuario}
+            value={email}
             onChange={({ target }) => {
-              setUsuario(target.value);
+              setEmail(target.value);
             }}
           />
         </div>

@@ -5,7 +5,7 @@ import Error from "../helper/Error";
 import { UserContext } from "../userContext";
 
 const ModalAdicionar = (props) => {
-  const { insertOne, error, setError } = React.useContext(UserContext);
+  const { URL_API, insertOne, error, setError } = React.useContext(UserContext);
   const [imagem, setImagem] = React.useState("");
   const [nome, setNome] = React.useState("");
   const [tipo, setTipo] = React.useState("");
@@ -28,10 +28,11 @@ const ModalAdicionar = (props) => {
           nome,
           tipo,
           descricao,
+          marca,
           imagem,
-          preco: Number(preco.replace(".", "").replace(',', '.')),
+          preco: Number(preco.replace(".", "").replace(",", ".")),
         },
-        `https://backrestend.vercel.app/produtos/`
+        `${URL_API}/produtos`
       );
       setImagem("");
       setNome("");

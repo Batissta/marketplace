@@ -12,6 +12,8 @@ const LoginCadastro = () => {
 
   return (
     <div className={styles.loginConteudo}>
+      <h1>Cadastre-se</h1>
+
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor="username">Nome Completo</label>

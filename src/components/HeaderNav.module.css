@@ -11,17 +11,17 @@
   transition: 0.2s;
 }
 .nav a:hover {
-  color: #0f89ec;
+  color: rgb(0, 0, 26);
 }
 .nav a:hover svg path {
-  fill: #0f89ec;
+  fill: rgb(0, 0, 26);
 }
 
 .nav a:global(.active) {
-  color: #0f89ec;
+  color: rgb(0, 0, 26);
 }
 .nav a:global(.active) svg path {
-  fill: #0f89ec;
+  fill: rgb(0, 0, 26);
   transition: 0.2s;
 }
 .nav a:global(.active):hover {

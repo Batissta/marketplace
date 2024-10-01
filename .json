@@ -1,0 +1,42 @@
+[
+  {
+    "nome": "Francinaldo Batista",
+    "endereco": "Rua A, 123, Centro",
+    "telefone": "(83) 99695-5416",
+    "email": "francinaldo.silva@example.com",
+    "senha": "francinaldo123",
+    "dataNascimento": "2005-04-26",
+    "cpf": "123.456.789-00",
+    "dataRegistro": "2024-09-30T10:00:00Z"
+  },
+  {
+    "nome": "Talles Oliveira",
+    "endereco": "Avenida B, 456, Bairro Novo",
+    "telefone": "(83) 99999-1234",
+    "email": "talles.oliveira@example.com",
+    "senha": "talles123",
+    "dataNascimento": "1985-11-25",
+    "cpf": "987.654.321-00",
+    "dataRegistro": "2024-09-30T10:05:00Z"
+  },
+  {
+    "nome": "Pablo Selares",
+    "endereco": "Travessa C, 789, Jardim das Flores",
+    "telefone": "(83) 98765-4321",
+    "email": "pablo.selares@example.com",
+    "senha": "pablo123",
+    "dataNascimento": "1992-02-10",
+    "cpf": "159.753.486-00",
+    "dataRegistro": "2024-09-30T10:10:00Z"
+  },
+  {
+    "nome": "Gabryell Leall",
+    "endereco": "Rua D, 321, Vila Nova",
+    "telefone": "(83) 91234-6789",
+    "email": "gabryell.leall@example.com",
+    "senha": "gabryell123",
+    "dataNascimento": "1988-07-30",
+    "cpf": "753.159.486-00",
+    "dataRegistro": "2024-09-30T10:15:00Z"
+  }
+]

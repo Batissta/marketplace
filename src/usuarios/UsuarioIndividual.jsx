@@ -6,11 +6,11 @@ import { UserContext } from "../userContext";
 
 const UsuarioIndividual = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { deleteOne } = React.useContext(UserContext);
+  const { deleteOne, URL_API } = React.useContext(UserContext);
 
   return (
     <div className={`container ${styles.containerUserIndividual}`}>
-      <img src={user.imagem} alt={`foto de ${user.nome}`} />
+      <img src={user.foto} alt={`foto de ${user.nome}`} />
       <h2 className={styles.tituloNome}>
         <p>{user.nome}</p>
       </h2>
@@ -35,19 +35,15 @@ const UsuarioIndividual = ({ user }) => {
         </button>
         {isOpen && (
           <div className={styles.gavetaInfo}>
-            <p className={styles.username}>username: {user.nome}</p>
-            <p className={styles.cpf}>cpf: {user.cpf}</p>
+            <p className={styles.username}>Username: {user.nome}</p>
+            <p className={styles.cpf}>Cpf: {user.cpf}</p>
             <p className={styles.cpf}>
               Cadastro: {user.dataRegistro.split("T")[0]}
             </p>
           </div>
         )}
       </div>
-      <Botao
-        onClick={() =>
-          deleteOne(`https://backrestend.vercel.app/usuarios/${user._id}`)
-        }
-      >
+      <Botao onClick={() => deleteOne(`${URL_API}/usuarios/${user._id}`)}>
         Remover usuário
       </Botao>
     </div>

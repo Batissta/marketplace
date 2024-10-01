@@ -13,7 +13,6 @@
   justify-content: center;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   width: 35%;
-  height: 45%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -35,7 +34,7 @@
 
 .loginConteudo label {
   font-size: 0.8rem;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .loginConteudo input {
@@ -47,7 +46,6 @@
   outline: none;
   font-size: 0.8rem;
 }
-
 
 .loginConteudo form > button {
   width: 100%;
@@ -65,7 +63,7 @@
 .navLink {
   max-width: fit-content;
   color: black;
-  font-size: .825rem;
+  font-size: 0.825rem;
   text-decoration: underline;
 }
 .navLink:hover {

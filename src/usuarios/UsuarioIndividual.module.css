@@ -16,10 +16,10 @@
   text-align: center;
 }
 .username {
-  color: var(--cor-1);
+  color: rgb(0, 0, 26);
 }
 .cpf {
-  color: var(--cor-1);
+  color: rgb(0, 0, 26);
 }
 .tituloNome {
   width: 100%;
@@ -29,19 +29,28 @@
   flex-wrap: wrap;
 }
 .gaveta > button {
-  background-color: transparent;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
   text-transform: uppercase;
   border: 1px solid var(--cor-5);
-  padding: 6px 14px;
-  border-radius: 20px;
+  padding: 10px 18px;
+  margin: 10px 0;
+  border-radius: 5px;
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 1rem;
+  font-size: 13px;
   cursor: pointer;
-  margin: 12px 0;
+  transition: 0.3s;
+}
+.gaveta > button:hover {
+  color: rgb(255, 245, 245);
+  background-color: rgb(0, 0, 0);
 }
 .gaveta > button svg path {
+  stroke: #fff;
+}
+.gaveta > button:hover svg path {
   stroke: var(--cor-1);
 }
 .gavetaInfo {

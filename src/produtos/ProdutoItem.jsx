@@ -5,7 +5,7 @@ import styles from "./ProdutoItem.module.css";
 import { UserContext } from "../userContext.jsx";
 
 const ProdutoItem = ({ dados, setModal }) => {
-  const { deleteOne } = React.useContext(UserContext);
+  const { URL_API, deleteOne } = React.useContext(UserContext);
 
   if (dados)
     return (
@@ -44,7 +44,7 @@ const ProdutoItem = ({ dados, setModal }) => {
           <button
             className={styles.buttoEdit}
             onClick={() => {
-              deleteOne(`https://backrestend.vervel.app/${dados._id}`);
+              deleteOne(`${URL_API}/produtos/${dados._id}`);
             }}
           >
             <Lixeira />
