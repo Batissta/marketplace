@@ -6,14 +6,12 @@ import Error from "../helper/Error";
 
 const ModalDesconto = ({ modal, setModal }) => {
   const [desconto, setDesconto] = React.useState(0);
-  const { updateOne, error, setError, loading } = React.useContext(UserContext);
+  const { updateOne, error, setError, loading, URL_API } =
+    React.useContext(UserContext);
 
   const handleNovoDesconto = () => {
     if (desconto > 0 && desconto <= 90) {
-      updateOne(
-        `https://backrestend.vercel.app/produtos/${modal._id}`,
-        Number(desconto)
-      );
+      updateOne(`${URL_API}/produtos/${modal._id}`, Number(desconto));
       setModal(null);
     } else {
       setError("O desconto deve ser entre 1 e 90%.");
@@ -51,10 +49,7 @@ const ModalDesconto = ({ modal, setModal }) => {
             <Botao
               className={"botaoInverso"}
               onClick={() => {
-                updateOne(
-                  `https://backrestend.vercel.app/produtos/${modal._id}`,
-                  0
-                );
+                updateOne(`${URL_API}/produtos/${modal._id}`, 0);
                 setModal(null);
               }}
               disabled={modal.promocao > 0 ? false : true}

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./LoginForm.module.css";
 import Botao from "../components/Botao";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { UserContext } from "../userContext.jsx";
 
 const LoginForm = () => {
@@ -14,7 +14,10 @@ const LoginForm = () => {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (email && senha) login({ email, senha });
+          if (email && senha) {
+            login({ email, senha });
+            <Navigate to={"/"} />;
+          }
         }}
       >
         <div>

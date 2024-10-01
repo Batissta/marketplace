@@ -3,9 +3,11 @@ import UserSvg from "../../public/UserSvg.jsx";
 import useMedia from "../hooks/useMedia";
 import { NavLink } from "react-router-dom";
 import styles from "./HeaderNav.module.css";
+import { UserContext } from "../userContext.jsx";
 
 const HeaderNav = () => {
   const mobile = useMedia("(width <= 600px)");
+  const { logado, usuario } = React.useContext(UserContext);
   const [mobileMenu, setMobileMenu] = React.useState(false);
 
   React.useEffect(() => {
@@ -27,12 +29,23 @@ const HeaderNav = () => {
           mobileMenu && styles.navMobileAtivo
         }`}
       >
-        <NavLink to="/usuarios">Administradores</NavLink>
-        <NavLink to="/clientes">Clientes</NavLink>
-        <NavLink to="/produtos">Produtos</NavLink>
-        <NavLink to="/login">
-          Login <UserSvg />
-        </NavLink>
+        {logado && (
+          <>
+            <NavLink to="/usuarios">Administradores</NavLink>
+            <NavLink to="/clientes">Clientes</NavLink>
+            <NavLink to="/produtos">Produtos</NavLink>
+            <NavLink to="/login">
+              {usuario && usuario.nome}
+              {!usuario && "Conta"}
+              <UserSvg />
+            </NavLink>
+          </>
+        )}
+        {!logado && (
+          <NavLink to="/login">
+            Login <UserSvg />
+          </NavLink>
+        )}
       </nav>
     </>
   );

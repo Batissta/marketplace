@@ -12,11 +12,19 @@ export const UserStorage = ({ children }) => {
   const [usuarios, setUsuarios] = React.useState(null);
   const [clientes, setClientes] = React.useState(null);
   const [logado, setLogado] = React.useState(false);
+  const [token, setToken] = React.useState("");
+  const [usuario, setUsuario] = React.useState(null);
 
   const fetchDataProdutos = async () => {
     try {
+      if (!token) return;
       setLoading(true);
-      const response = await fetch(`${URL_API}/produtos`);
+      const response = await fetch(`${URL_API}/produtos`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       const json = await response.json();
       if (!json) throw new Error("something went wrong");
       setProdutos(json);
@@ -28,8 +36,14 @@ export const UserStorage = ({ children }) => {
   };
   const fetchDataClientes = async () => {
     try {
+      if (!token) return;
       setLoading(true);
-      const response = await fetch(`${URL_API}/clientes`);
+      const response = await fetch(`${URL_API}/clientes`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       const json = await response.json();
       if (!json) throw new Error("something went wrong");
       setClientes(json);
@@ -41,8 +55,14 @@ export const UserStorage = ({ children }) => {
   };
   const fetchDataUsuarios = async () => {
     try {
+      if (!token) return;
       setLoading(true);
-      const response = await fetch(`${URL_API}/usuarios`);
+      const response = await fetch(`${URL_API}/usuarios`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       const json = await response.json();
       if (!json) throw new Error("something went wrong");
       setUsuarios(json);
@@ -54,9 +74,13 @@ export const UserStorage = ({ children }) => {
   };
   const insertOne = async (data, url) => {
     try {
+      if (!token) return;
       const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
         body: JSON.stringify({ ...data }),
       });
       fetchDataProdutos();
@@ -66,8 +90,12 @@ export const UserStorage = ({ children }) => {
   };
   const deleteOne = async (url) => {
     try {
+      if (!token) return;
       const response = await fetch(url, {
         method: "DELETE",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
       });
       fetchDataProdutos();
     } catch (error) {
@@ -76,11 +104,15 @@ export const UserStorage = ({ children }) => {
   };
   const updateOne = async (url, update) => {
     try {
+      if (!token) return;
       setError("");
       setLoading(true);
       const result = await fetch(url, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
         body: JSON.stringify({ promocao: Number(update) }),
       });
       fetchDataProdutos();
@@ -90,16 +122,27 @@ export const UserStorage = ({ children }) => {
       setLoading(false);
     }
   };
+  const checkToken = async () => {
+    const token = window.localStorage.getItem("token");
+    if (token) {
+      setLogado(true);
+      setToken(token);
+    }
+  };
   const login = async (body) => {
     try {
       setLoading(true);
-      const response = await fetch(`${URL_API}/produtos/login`);
+      const response = await fetch(`${URL_API}/usuarios/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
       const json = await response.json();
       if (!json.token) throw new Error("Deu errado");
       window.localStorage.setItem("token", json.token);
       setLogado(true);
+      setUsuario(json.content);
     } catch (error) {
-      console.log(error.message);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -110,11 +153,16 @@ export const UserStorage = ({ children }) => {
     window.localStorage.removeItem("token");
     setLogado(false);
     setLoading(false);
+    setToken("");
   };
+  React.useEffect(() => {
+    checkToken();
+  }, []);
   React.useEffect(() => {
     if (location.pathname === "/produtos") fetchDataProdutos();
     if (location.pathname === "/clientes") fetchDataClientes();
     if (location.pathname === "/usuarios") fetchDataUsuarios();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
   return (
     <UserContext.Provider
@@ -132,6 +180,7 @@ export const UserStorage = ({ children }) => {
         logado,
         login,
         logOut,
+        usuario,
       }}
     >
       {children}
