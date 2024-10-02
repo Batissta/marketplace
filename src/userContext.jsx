@@ -31,6 +31,7 @@ export const UserStorage = ({ children }) => {
         },
       });
       const json = await response.json();
+      console.log(json);
       if (!json) throw new Error("something went wrong");
       setProdutos(json);
     } catch (error) {
@@ -38,7 +39,7 @@ export const UserStorage = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [location]);
   const fetchDataClientes = React.useCallback(async () => {
     try {
       if (!token) return;
@@ -50,6 +51,8 @@ export const UserStorage = ({ children }) => {
         },
       });
       const json = await response.json();
+      console.log(json);
+
       if (!json) throw new Error("something went wrong");
       setClientes(json);
     } catch (error) {
@@ -57,7 +60,7 @@ export const UserStorage = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [location]);
   const fetchDataUsuarios = React.useCallback(async () => {
     try {
       if (!token) return;
@@ -69,6 +72,8 @@ export const UserStorage = ({ children }) => {
         },
       });
       const json = await response.json();
+      console.log(json);
+
       if (!json) throw new Error("something went wrong");
       setUsuarios(json);
     } catch (error) {
@@ -76,9 +81,11 @@ export const UserStorage = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [location]);
   const insertOne = async (data, url) => {
     try {
+      setError("");
+      setLoading(true);
       if (!token) return;
       const response = await fetch(url, {
         method: "POST",
@@ -91,11 +98,15 @@ export const UserStorage = ({ children }) => {
       checkLocation();
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
   const deleteOne = async (url) => {
     try {
       if (!token) return;
+      setError("");
+      setLoading(true);
       const response = await fetch(url, {
         method: "DELETE",
         headers: {
@@ -105,6 +116,8 @@ export const UserStorage = ({ children }) => {
       checkLocation();
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(fasle);
     }
   };
   const updateOne = async (url, update) => {
@@ -138,6 +151,7 @@ export const UserStorage = ({ children }) => {
   };
   const login = async (body) => {
     try {
+      setError("");
       setLoading(true);
       const response = await fetch(`${URL_API}/usuarios/login`, {
         method: "POST",
@@ -145,7 +159,7 @@ export const UserStorage = ({ children }) => {
         body: JSON.stringify(body),
       });
       const json = await response.json();
-      if (!json.token) throw new Error("Deu errado");
+      if (!json.token) throw new Error("Credenciais inválidas");
       window.localStorage.setItem("token", json.token);
       const { senha, _id, _v, ...user } = json.content;
       window.localStorage.setItem("user", JSON.stringify(user));
@@ -158,7 +172,7 @@ export const UserStorage = ({ children }) => {
       setLoading(false);
     }
   };
-  const logOut = async () => {
+  const logOut = () => {
     setLoading(true);
     window.localStorage.removeItem("token");
     window.localStorage.removeItem("user");
@@ -179,13 +193,7 @@ export const UserStorage = ({ children }) => {
         body: JSON.stringify(body),
       });
       const json = await response.json();
-      if (!json.token) throw new Error("Deu errado");
-      window.localStorage.setItem("token", json.token);
-      const { senha, _id, _v, ...user } = json.content;
-      console.log(user);
-      window.localStorage.setItem("user", JSON.stringify(user));
-      setLogado(true);
-      setUsuario(json.content);
+      console.log("Usuário criado com sucesson!");
     } catch (error) {
       setError(error.message);
     } finally {
@@ -194,10 +202,13 @@ export const UserStorage = ({ children }) => {
   };
   React.useEffect(() => {
     checkToken();
-  }, [location]);
-  React.useEffect(() => {
     checkLocation();
   }, [location]);
+
+  React.useEffect(() => {
+    checkToken();
+    checkLocation();
+  }, []);
   return (
     <UserContext.Provider
       value={{

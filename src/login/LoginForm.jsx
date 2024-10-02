@@ -7,7 +7,7 @@ import { UserContext } from "../userContext.jsx";
 const LoginForm = () => {
   const [email, setEmail] = React.useState("");
   const [senha, setSenha] = React.useState("");
-  const { login } = React.useContext(UserContext);
+  const { login, loading, error } = React.useContext(UserContext);
   return (
     <div className={styles.loginConteudo}>
       <h1>Login</h1>
@@ -42,7 +42,11 @@ const LoginForm = () => {
             }}
           />
         </div>
-        <Botao>login</Botao>
+        {error && <p className="error">{error}</p>}
+        <Botao className={styles.btnCarregando}>
+          {loading && <div className={`loading ${styles.loadingBtn}`}></div>}
+          {!loading && "login"}
+        </Botao>
       </form>
       <div className={styles.navegue}>
         <Link to="/login/cadastro" className={styles.navLink}>

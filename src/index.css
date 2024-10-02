@@ -72,6 +72,14 @@ input:focus {
   border-color: #333;
   background-color: #ffffff;
 }
+.botao:disabled {
+  background-color: #999;
+}
+.botao:disabled:hover {
+  background-color: #aaa;
+  border: 1px solid #eee;
+  color: #fff;
+}
 .botaoInverso {
   margin-top: 10px;
   color: var(--cor-5);
@@ -118,7 +126,7 @@ input:focus {
   border: 1px solid lightgray;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   transition: all 0.2s ease;
 }
 .container:hover {

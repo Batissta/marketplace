@@ -11,7 +11,6 @@ const ProdutoModal = ({
   setModal,
   ...props
 }) => {
-  const { error } = React.useContext(UserContext);
   if (modal)
     return (
       <div

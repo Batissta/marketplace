@@ -6,7 +6,7 @@ import { UserContext } from "../userContext";
 
 const UsuarioIndividual = ({ user }) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const { deleteOne, URL_API } = React.useContext(UserContext);
+  const { deleteOne, URL_API, usuario } = React.useContext(UserContext);
 
   return (
     <div className={`container ${styles.containerUserIndividual}`}>
@@ -43,9 +43,18 @@ const UsuarioIndividual = ({ user }) => {
           </div>
         )}
       </div>
-      <Botao onClick={() => deleteOne(`${URL_API}/usuarios/${user._id}`)}>
-        Remover usuário
-      </Botao>
+      {user.nome === usuario.nome && (
+        <Botao disabled={true}>Remover administrador</Botao>
+      )}
+      {user.nome !== usuario.nome && (
+        <Botao
+          onClick={() => {
+            deleteOne(`${URL_API}/usuarios/${user._id}`);
+          }}
+        >
+          Remover administrador
+        </Botao>
+      )}
     </div>
   );
 };

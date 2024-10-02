@@ -1,12 +1,13 @@
 import styles from "./LoginForm.module.css";
 import LoginCadastro from "./LoginCadastro.jsx";
 import LoginForm from "./LoginForm.jsx";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import React from "react";
 import { UserContext } from "../userContext.jsx";
 
 const Login = () => {
   const { logado } = React.useContext(UserContext);
+  const location = useLocation();
   if (logado) return <Navigate to={"/"} />;
   else
     return (

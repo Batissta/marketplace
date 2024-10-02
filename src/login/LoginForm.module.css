@@ -28,9 +28,9 @@
   flex-direction: column;
 }
 
-.loginConteudo div:first-of-type {
+/* .loginConteudo div:first-of-type {
   margin-bottom: 0.825rem;
-}
+} */
 
 .loginConteudo label {
   font-size: 0.8rem;
@@ -69,7 +69,14 @@
 .navLink:hover {
   color: rgb(0, 0, 26);
 }
-
+.carregandoBtn {
+  display: flex;
+}
+:global(.loading).loadingBtn {
+  flex: 1;
+  align-self: center;
+  justify-self: center;
+}
 @media (width<=600px) {
   .loginForm {
     display: flex;

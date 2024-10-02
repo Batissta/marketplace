@@ -4,7 +4,7 @@ import styles from "./UsuarioIndividual.module.css";
 import { UserContext } from "../userContext";
 
 const Usuario = () => {
-  const { usuarios, loading } = React.useContext(UserContext);
+  const { usuarios, loading, usuario } = React.useContext(UserContext);
 
   return (
     <section className={`box`}>
@@ -19,9 +19,9 @@ const Usuario = () => {
         {!loading &&
           usuarios &&
           usuarios.length !== 0 &&
-          usuarios.map((user) => (
-            <UsuarioIndividual user={user} key={user.nome} />
-          ))}
+          usuarios.map((user) => {
+            return <UsuarioIndividual user={user} key={user.nome} />;
+          })}
         {!loading && usuarios && usuarios.length === 0 && (
           <h2 className={styles.nenhumProduto}>
             Nenhum administrador cadastrado? Tem algo de errado.
