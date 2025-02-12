@@ -1,8 +1,21 @@
-# React + Vite
+# 🧠 Projeto Frontend E-Commerce
+## 🗓️ 02/10/2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ✍🏻 Autor
 
-Currently, two official plugins are available:
+<a><img src="https://gitlab.com/uploads/-/system/user/avatar/23003426/avatar.png" width="200"></a><br><br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Olá, Sou **Francinaldo Batista** <br>
+
+📍 **Localidade:** Campina Grande, Paraíba<br>
+🎓 **Formação:** Sistemas de informação - UniFacisa, 4° Semestre<br>
+
+Me encontre no **LinkedIn:**<br>
+<a href="https://www.linkedin.com/in/francinaldobatista"><img src="https://img.shields.io/badge/LinkedIn-black?style=for-the-badge&logo=linkedin" width="100"></a>
+
+# 🎈 Stack
+Projeto realizado em Reactjs, css e html.<br><br>
+![Markdown](https://img.shields.io/badge/Reactjs-000000?style=for-the-badge&logo=React)
+![Markdown](https://img.shields.io/badge/css-blue?style=for-the-badge&logo=css)
+
+_made by Francinaldo Batista_
